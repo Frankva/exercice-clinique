@@ -64,7 +64,7 @@ $(FORMS)ConnectionForm.class: $(FORMS)ConnectionForm.java
 $(DAO)UtilisateurDao.class: $(DAO)UtilisateurDao.java
 	$(JAVAC) -cp '$(CLASS)' '$<' 
 $(DAO)UtilisateurDaoImpl.class: $(DAO)UtilisateurDaoImpl.java
-	$(JAVAC) -cp '$(CLASS)' '$<' 
+	$(JAVAC) -cp '$(LIB)*;$(CLASS)' '$<' 
 $(DAO)DaoException.class: $(DAO)DaoException.java
 	$(JAVAC) -cp '$(CLASS)' '$<' 
 $(DAO)DaoFactory.class: $(DAO)DaoFactory.java $(DAO)UtilisateurDaoImpl.class\

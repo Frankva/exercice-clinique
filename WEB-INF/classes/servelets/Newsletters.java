@@ -32,9 +32,16 @@ public class Newsletters extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws IOException, ServletException
     {
-        this.getServletContext()
-            .getRequestDispatcher("/WEB-INF/newsletter.jsp")
-            .forward(request, response);
+        try {
+            List<Email> emails = emailDao.findAll();
+            request.setAttribute("emails", emails);
+            this.getServletContext()
+                .getRequestDispatcher("/WEB-INF/newsletter.jsp")
+                .forward(request, response);
+        } catch (Exception e) {
+            System.out.println(e);
+            throw new ServletException();
+        }
     }
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws IOException, ServletException

@@ -85,7 +85,6 @@ public class DoctorDaoMariaDB implements DoctorDao {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultat = null;
-
         try {
             connection = daoFactory.getConnection();
             statement = connection.createStatement();

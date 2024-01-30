@@ -49,6 +49,14 @@
             </div>
           </div>
         </form>
+        <h2>Liste des inscrits</h2>
+        <ul>
+            <c:forEach var="email" items="${ emails }">
+                <li>
+                    <c:out value="${ email.name }"/>
+                </li>
+            </c:forEach>
+        </ul>
       </div>
     </section>
   </body>

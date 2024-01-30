@@ -3,6 +3,8 @@ package dao;
 import java.sql.*;
 import beans.Email;
 import beans.Person;
+import java.util.List;
+import java.util.ArrayList;
 
 public class EmailDaoMariaDB implements EmailDao {
     private DaoFactory daoFactory;
@@ -41,6 +43,28 @@ public class EmailDaoMariaDB implements EmailDao {
             System.out.println("rollback error");
             System.out.println(e);
         }
+    }
+    @Override
+    public List<Email> findAll() throws Exception {
+        Connection connection = daoFactory.getConnection();
+        try {
+            List<Email> emails = new ArrayList<Email>();
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(findAllSql());
+            while (result.next()) {
+                String name = result.getString("name");
+                Email email = new Email();
+                email.setName(name);
+                emails.add(email);
+            }
+            return emails;
+        } catch(Exception e) {
+            throw new Exception();
+        }
+    }
+    private String findAllSql() {
+        return "SELECT name "
+            + "FROM emails ";
     }
     private String addEmailSql() {
         return "INSERT INTO emails "
