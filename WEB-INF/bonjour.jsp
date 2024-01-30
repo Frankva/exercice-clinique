@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Test</title>
+      <meta charset="utf-8" />
+      <title>Test</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/clinique/bulma.min.css">
     </head>
     <body>
-        <%@ include file="menu.jsp" %>
+      <%@ include file="menu.jsp" %>
+      <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
         <p>Bonjour ${ auteur.prenom } ${ auteur.nom }
             <c:out value="Bonjour !" />
         </p>
@@ -44,5 +54,7 @@
                 </li>
             </c:forEach>
         </ul>
+    </div>
+  </section>
     </body>
 </html>

@@ -15,7 +15,9 @@ import forms.ConnectionForm;
 // import bdd.Noms;
 import beans.Utilisateur;
 
-import dao.*;
+import dao.DaoFactory;
+import dao.UtilisateurDao;
+import dao.DaoException;
 
 public class Test extends HttpServlet {
 
@@ -27,8 +29,13 @@ public class Test extends HttpServlet {
     private UtilisateurDao utilisateurDao;
 
     public void init() throws ServletException {
-        DaoFactory daoFactory = DaoFactory.getInstance();
-        this.utilisateurDao = daoFactory.getUtilisateurDao();
+        try {
+            DaoFactory daoFactory = DaoFactory.getInstance();
+            this.utilisateurDao = daoFactory.getUtilisateurDao();
+        } catch (Exception e) {
+            System.out.println(e);
+            throw new ServletException();
+        }
     }
 
     protected void doGet(HttpServletRequest request,

@@ -22,6 +22,38 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>Doctors</servlet-name>
+    <servlet-class>servelets.Doctors</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Doctors</servlet-name>
+    <url-pattern>/doctors</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Nurses</servlet-name>
+    <servlet-class>servelets.Nurses</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Nurses</servlet-name>
+    <url-pattern>/nurses</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Newsletters</servlet-name>
+    <servlet-class>servelets.Newsletters</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Newsletters</servlet-name>
+    <url-pattern>/newsletters</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.css</url-pattern>
+  </servlet-mapping>
+
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsp</url-pattern>
